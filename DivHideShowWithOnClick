@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Password</title>
+</head>
+<body>
+
+    <div class="main_area">
+        <div class="div_one">
+            <h1>Home</h1>
+            <h1>About</h1>
+            <h1>Contact</h1>
+        </div>
+
+        <div class="div_two">
+            <div>This is Home</div>
+            <div>This is About</div>
+            <div>This is Contact</div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function(){
+           $('.div_two div:not(:first-child)').hide();
+           $('.div_one h1').on('click',function(){
+              let countIndex = ($(this).index() + 1);
+               console.log(countIndex);
+              $(this).parent().find('h1').removeClass('active');
+              $(this).addClass('active');
+              $('.div_two div').hide();
+              $('.div_two div:nth-child('+countIndex+')').show();
+           });
+        });
+    </script>
+
+</body>
+</html>
